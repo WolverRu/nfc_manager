@@ -139,10 +139,7 @@ class NfcManagerPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         val mIsoDep = IsoDep.get(it)
             mIsoDep.connect()
         val card: EmvCard? = parser.readEmvCard()
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String date = card?.expireDate.toInstant()
-            .atZone(ZoneId.systemDefault())
-            .toLocalDate().format(formatter);
+        val date = card?.expireDate.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy"))
             activity.runOnUiThread {
             channel.invokeMethod("onDiscovered", getTagMap(it).toMutableMap().apply {
             put("handle", handle)
