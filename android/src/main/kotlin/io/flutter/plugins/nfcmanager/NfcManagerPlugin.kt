@@ -32,9 +32,6 @@ import com.github.devnied.emvnfccard.parser.EmvTemplate
 import com.github.devnied.emvnfccard.model.EmvCard
 import com.github.devnied.emvnfccard.parser.IProvider
 import io.flutter.plugins.nfcmanager.Provider
-import java.time.LocalDate
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 
 
 class NfcManagerPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
@@ -140,10 +137,8 @@ class NfcManagerPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         val mIsoDep = IsoDep.get(it)
             mIsoDep.connect()
         val card: EmvCard? = parser.readEmvCard()
-        val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-        val date = card?.expireDate.toInstant()
             .atZone(ZoneId.systemDefault())
-            .toLocalDate().format(formatter)
+            .toLocalDate().format(formatter);
             activity.runOnUiThread {
             channel.invokeMethod("onDiscovered", getTagMap(it).toMutableMap().apply {
             put("handle", handle)
@@ -154,7 +149,7 @@ class NfcManagerPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
             put("bic", card?.bic)
             put("at", card?.at)
             put("iban", card?.iban)
-            put("expireDate", date?.toString())
+            put("expireDate", card?.expireDate.toString())
             put("state", card?.state?.toString())
             put("getHolderLastname", card?.getHolderLastname())
             })
