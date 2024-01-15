@@ -1,12 +1,9 @@
 package io.flutter.plugins.nfcmanager
 
-// import com.github.devnied.emvnfccard.parser.IProvider
 import com.github.devnied.emvnfccard.parser.IProvider
 import com.github.devnied.emvnfccard.parser.EmvTemplate
 import com.github.devnied.emvnfccard.model.EmvCard
 import com.github.devnied.emvnfccard.exception.CommunicationException
-// import com.github.devnied.emvnfccard.exception.CommunicationException
-// import com.github.devnied.emvnfccard.model.EmvCard
 import android.nfc.tech.IsoDep
 import java.io.IOException
 
