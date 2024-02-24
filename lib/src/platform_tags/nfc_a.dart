@@ -20,16 +20,8 @@ class NfcA {
     required this.maxTransceiveLength,
     required this.timeout,
     required this.cardNumber,
-    required this.holderFirstName,
-    required this.holderLastName,
     required this.type,
-    required this.bic,
-    required this.at,
-    // required this.track1,
-    // required this.track2,
     required this.expireDate,
-    required this.getHolderLastname,
-    required this.iban,
     required this.state,
   }) : _tag = tag;
 
@@ -52,16 +44,10 @@ class NfcA {
   final int timeout;
 
   final String cardNumber;
-  final String holderFirstName;
-  final String holderLastName;
+
   final String type;
-  final String bic;
-  final String at;
-  // final String track1;
-  // final String track2;
-  final String iban;
+
   final String? expireDate;
-  final String? getHolderLastname;
 
   final String state;
 

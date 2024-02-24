@@ -72,17 +72,9 @@ NfcTag $GetNfcTag(Map<String, dynamic> arg) {
   return NfcTag(
     handle: arg.remove('handle'),
     cardNumber: arg['cardNumber'],
-    holderFirstName: arg['holderFirstName'],
-    holderLastName: arg['holderLastName'],
     type: arg['type'],
-    at: arg['at'],
-    bic: arg['bic'],
-    iban: arg['iban'],
     expireDate: arg['expireDate'],
-    getHolderLastname: arg['getHolderLastname'],
     state: arg['state'],
-    // track1: arg['track1'],
-    // track2: arg['track2'],
     data: arg,
   );
 }
@@ -259,17 +251,9 @@ NfcA? $GetNfcA(NfcTag arg) {
     maxTransceiveLength: data['maxTransceiveLength'],
     timeout: data['timeout'],
     cardNumber: arg.cardNumber ?? '',
-    holderFirstName: arg.holderFirstName ?? '',
-    holderLastName: arg.holderLastName ?? '',
     type: arg.type ?? '',
-    at: arg.at ?? '',
-    bic: arg.bic ?? '',
-    iban: arg.iban ?? '',
-    getHolderLastname: arg.getHolderLastname ?? '',
     expireDate: arg.expireDate ?? '',
     state: arg.state ?? '',
-    // track1: arg.track1 ?? '',
-    // track2: arg.track2 ?? ''
   );
 }
 

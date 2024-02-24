@@ -126,34 +126,18 @@ class NfcTag {
   const NfcTag({
     required this.handle,
     required this.cardNumber,
-    required this.holderFirstName,
-    required this.holderLastName,
     required this.type,
-    required this.bic,
-    required this.at,
-    // required this.track1,
-    // required this.track2,
-    required this.iban,
     required this.state,
     required this.expireDate,
-    required this.getHolderLastname,
     required this.data,
   });
 
   /// The value used by this plugin internally.
   final String handle;
   final String? cardNumber;
-  final String? holderFirstName;
-  final String? holderLastName;
   final String? type;
-  final String? bic;
-  final String? at;
-  // final String? track1;
-  // final String? track2;
-  final String? iban;
   final String? state;
   final String? expireDate;
-  final String? getHolderLastname;
 
   /// The raw values about this tag obtained from the native platform.
   ///

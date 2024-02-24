@@ -146,15 +146,9 @@ class NfcManagerPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
             channel.invokeMethod("onDiscovered", getTagMap(it).toMutableMap().apply {
             put("handle", handle)
             put("cardNumber", card?.cardNumber)
-            put("holderFirstName", card?.holderFirstname)
-            put("holderLastName", card?.holderLastname)
             put("type", card?.type?.getName())
-            put("bic", card?.bic)
-            put("at", card?.at)
-            put("iban", card?.iban)
             put("expireDate", date?.toString())
             put("state", card?.state?.toString())
-            put("getHolderLastname", card?.getHolderLastname())
             })
           }
           }, getFlags(call.argument<List<String>>("pollingOptions")!!), null)
