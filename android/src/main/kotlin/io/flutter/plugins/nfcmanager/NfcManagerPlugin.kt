@@ -139,7 +139,7 @@ class NfcManagerPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         val mIsoDep = IsoDep.get(it)
             mIsoDep.connect()
         val card: EmvCard? = parser.readEmvCard()
-        var date = expireDate.toInstant()
+        var date = card?.expireDate.toInstant()
                     .atZone(ZoneId.systemDefault())
                     .toLocalDate()
             activity.runOnUiThread {
