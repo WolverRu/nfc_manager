@@ -25,7 +25,9 @@ import io.flutter.plugin.common.MethodChannel.Result
 import java.io.IOException
 import java.lang.Exception
 import java.util.*
-
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 
 import com.github.devnied.emvnfccard.parser.EmvTemplate
@@ -138,12 +140,14 @@ class NfcManagerPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         val mIsoDep = IsoDep.get(it)
             mIsoDep.connect()
         val card: EmvCard? = parser.readEmvCard()
+            val outputFormat = SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH)
+            val formattedDate = outputFormat.format(card?.expireDate)
             activity.runOnUiThread {
             channel.invokeMethod("onDiscovered", getTagMap(it).toMutableMap().apply {
             put("handle", handle)
             put("cardNumber", card?.cardNumber)
             put("type", card?.type?.getName())
-            put("expireDate", card?.expireDate?.toString())
+            put("expireDate", formattedDate?.toString())
             put("state", card?.state?.toString())
             })
           }
