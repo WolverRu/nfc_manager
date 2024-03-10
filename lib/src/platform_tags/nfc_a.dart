@@ -47,7 +47,7 @@ class NfcA {
 
   final String type;
 
-  final String? expireDate;
+  final String expireDate;
 
   final String state;
 
