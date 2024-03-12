@@ -43,11 +43,11 @@ class NfcA {
   /// The value from NfcA#timeout on Android.
   final int timeout;
 
-  final String cardNumber;
+  final String? cardNumber;
 
   final String type;
 
-  final String expireDate;
+  final String? expireDate;
 
   final String state;
 
