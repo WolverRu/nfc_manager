@@ -45,7 +45,7 @@ class NfcA {
 
   final String? cardNumber;
 
-  final String type;
+  final String? type;
 
   final String? expireDate;
 
